@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: WD
+    ports:
+      - '8080:80'
+    networks:
+      - wordpress_app_container_priv
+      - wordpress_app_container
+
+  mariadb-master:
+    build: ./SQL-MASTER/
+    container_name: SQL-MASTER
+    environment:
+      MARIADB_USER: 'boite'
+      MARIADB_ROOT_PASSWORD: 'boite'
+      MARIADB_PASSWORD: 'boite'
+      MARIADB_DATABASE: 'wordpress'
+    expose:
+      - "3306"
+    networks:
+      - wordpress_app_container_priv
+
+  mariadb-slave1:
+    build: ./SQL-SLAVE01/
+    container_name: SQL-SLAVE01
+    environment:
+      MARIADB_USER: 'boite1'
+      MARIADB_ROOT_PASSWORD: 'boite'
+      MARIADB_PASSWORD: 'boite'
+      MARIADB_DATABASE: 'wordpress'
+    expose:
+      - "3306"
+    networks:
+      - wordpress_app_container_priv
+
+  mariadb-slave2:
+    build: ./SQL-SLAVE02/
+    container_name: SQL-SLAVE02
+    environment:
+      MARIADB_USER: 'boite2'
+      MARIADB_ROOT_PASSWORD: 'boite'
+      MARIADB_PASSWORD: 'boite'
+      MARIADB_DATABASE: 'wordpress'
+    expose:
+      - "3306"
+    networks:
+      - wordpress_app_container_priv
+
+
+networks:
+  wordpress_app_container_priv:
+    driver: overlay
+    internal: true
+    attachable: true
+
+  wordpress_app_container:
