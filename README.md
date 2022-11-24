@@ -38,7 +38,7 @@ SHOW MASTER STATUS;
 UNLOCK TABLES;
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/879f9dca-5494-45bf-9bfd-9fbdb0ce053d/Untitled.png)
+![master_status](./static/masterStatus.png)
 
 - get
     - file
@@ -78,6 +78,7 @@ START SLAVE;
 ```sql
 SHOW SLAVE STATUS \G
 ```
+![slavesSatus](./static/slaveSatus.png)
 
 If slave_*_running is Good
 
@@ -108,6 +109,8 @@ Create database badaboum;
 ```sql
 SHOW MASTER STATUS;
 ```
+
+![masterSatus](./static/masterStatus.png)
 
 ## Master2 config
 
@@ -146,6 +149,8 @@ START SLAVE;
 SHOW MASTER STATUS;
 ```
 
+![masterSatus](./static/masterStatus.png)
+
 ## Master1 slave config
 
 ```sql
@@ -167,3 +172,6 @@ START SLAVE;
 ```sql
 show slave status\G
 ```
+
+
+![slavesSatus](./static/slaveSatus.png)
