@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  mariadb-master01:
+    build: ./SQL-MASTER01/
+    container_name: SQL-MASTER01
+    environment:
+      MARIADB_USER: 'boite'
+      MARIADB_ROOT_PASSWORD: 'boite'
+      MARIADB_PASSWORD: 'boite'
+      MARIADB_DATABASE: 'badaboom'
+    expose:
+      - "3306"
+    networks:
+      - wordpress_app_container
+
+  mariadb-master02:
+    build: ./SQL-MASTER02/
+    container_name: SQL-MASTER02
+    environment:
+      MARIADB_USER: 'boite1'
+      MARIADB_ROOT_PASSWORD: 'boite'
+      MARIADB_PASSWORD: 'boite'
+      MARIADB_DATABASE: 'badaboum'
+    expose:
+      - "3306"
+    networks:
+      - wordpress_app_container
+
+networks:
+  wordpress_app_container:
