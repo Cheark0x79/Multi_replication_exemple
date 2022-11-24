@@ -54,6 +54,6 @@ networks:
   wordpress_app_container_priv:
     driver: overlay
     internal: true
-    attachable: true
+#   attachable: true
 
   wordpress_app_container:
