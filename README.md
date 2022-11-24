@@ -173,7 +173,11 @@ show slave status\\G
 
 
 
-## Master/Master
+# Master/Master
+
+### warning
+if docker-compose faile attached failed
+- comment on the line attached (line 57 ./master-slave/docker-container.yml)
 
 
 ## Master1 config
