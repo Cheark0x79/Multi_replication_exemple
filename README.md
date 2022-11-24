@@ -1,5 +1,16 @@
 # Multi replication
 
+## Task SQL
+- [x] Dump
+- [x] Master/Slave
+- [x] Master/Master
+- [x] indicater performance
+
+
+## Task Postgreysql
+- [ ] Master/Slave
+- [ ] Master/Master
+
 ### How to use
 - cd ./master-slave
 - docker-compose up -d
