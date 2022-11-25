@@ -70,13 +70,15 @@ server-id=<number of server>
 
 ## Start slave
 
+in mysql
+
 ```sql
 CHANGE MASTER TO
-  MASTER_HOST=<Host>,
+  MASTER_HOST='<Host>',
   MASTER_USER='replication_user',
   MASTER_PASSWORD='boite',
   MASTER_PORT=3306,
-  MASTER_LOG_FILE=<file>,
+  MASTER_LOG_FILE='<file>',
   MASTER_LOG_POS=<Possition>,
   MASTER_CONNECT_RETRY=10,
 	MASTER_USE_GTID = slave_pos;
