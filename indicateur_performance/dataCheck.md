@@ -30,6 +30,7 @@ log_slow_admin_statements=ON
  and retart service mariadb
 
 ### Add variable
+__in mysql__
 
 ```sql
 INSTALL SONAME 'query_response_time';
@@ -41,6 +42,8 @@ SET GLOBAL long_query_time=5.0;
 
 ### Show statistics
 
+__in mysql__
+
 ```sql
 SELECT * FROM INFORMATION_SCHEMA.USER_STATISTICS\G
 SELECT * FROM INFORMATION_SCHEMA.QUERY_RESPONSE_TIME;
@@ -48,6 +51,8 @@ SELECT * FROM INFORMATION_SCHEMA.QUERY_RESPONSE_TIME;
 
 
 ### FILE LOG
+
+__in mysql__
 
 ```bash
 cat /var/log/mysql/mariadb-slow.log
