@@ -6,6 +6,11 @@ services:
     container_name: WD
     ports:
       - '8080:80'
+    environment:
+      WORDPRESS_DB_HOST: 'SQL-MASTER'
+      WORDPRESS_DB_USER: 'boite'
+      WORDPRESS_DB_PASSWORD: 'boite'
+      WORDPRESS_DB_NAME: 'wordpress'
     networks:
       - wordpress_app_container_priv
       - wordpress_app_container
@@ -54,6 +59,6 @@ networks:
   wordpress_app_container_priv:
     driver: overlay
     internal: true
-#   attachable: true
+    attachable: true
 
   wordpress_app_container:
